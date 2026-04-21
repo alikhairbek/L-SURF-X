@@ -121,16 +121,4 @@ MIT License — see [LICENSE](LICENSE) file.
 - **Ali A. Khairbek** — `alikhairbek@gmail.com`
 - **Prof. Renjith Thomas** — `renjith@sbcollege.ac.in`
 
-Contributions and issues are welcome!
-
----
-
-
-هذا الـ README الآن **مثالي** لمستودع يرافق ورقة Q1:
-- يحتوي على رابط DOI الرسمي لـ Data.csv
-- وصف FAIR كامل
-- اقتباسات واضحة
-- هيكل احترافي
-
-هل تريد نسخة **بالعربية** أيضاً، أو تعديل أي جزء (مثل إضافة رابط GitHub الفعلي)؟  
-اكتب "موافق" أو "عدّل ..." وسأعدّله فوراً.
+-----
