@@ -1,0 +1,31 @@
+# 1. System & Archive Tools
+!apt-get update -q && apt-get install -y unrar-free cmake g++ libtool phreeqc -q
+!pip install patool rarfile python-docx reportlab openpyxl tqdm joblib --quiet
+
+# 2. Download & Build PHREEQC 3.8.8
+!wget https://github.com/usgs-coupled/phreeqci/archive/refs/tags/v3.8.8.tar.gz
+!tar -xf v3.8.8.tar.gz
+
+import os
+os.chdir('/content/phreeqci-3.8.8')
+!mkdir -p build && cd build && cmake .. && make -j$(nproc) && make install
+!ldconfig
+os.chdir('/content')
+
+# 3. Python Data Science & ML Libraries
+!pip uninstall mapie -y --quiet
+!pip install --upgrade pip --quiet
+!pip install phreeqpy numpy pandas matplotlib scikit-learn xgboost lightgbm catboost shap seaborn mapie==0.8.2 --quiet
+
+# 4. Final Verification
+from phreeqpy.iphreeqc.phreeqc_dll import IPhreeqc
+try:
+    ph = IPhreeqc()
+    print(f"\nPHREEQC Version: {ph.get_version()}")
+    db_path = "/content/phreeqci-3.8.8/database/phreeqc.dat"
+    if os.path.exists(db_path):
+        ph.load_database(db_path)
+        print(f"Database Path: {db_path}")
+        print(" Environment is fully configured with Word and Archive support.")
+except Exception as e:
+    print(f"Error: {e}")
