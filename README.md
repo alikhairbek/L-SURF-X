@@ -42,7 +42,7 @@ Zavarin et al. (2022) – *Community Data Mining Approach for Surface Complexati
 ### 🚀 Quick Start
 
 ```bash
-git clone https://github.com/yourusername/L-SURF-X.git
+git clone https://github.com/alikhairbek/L-SURF-X
 cd L-SURF-X
 pip install -r requirements.txt
 python main.py
